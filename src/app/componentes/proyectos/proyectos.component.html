@@ -1,0 +1,15 @@
+<nav id="proyectos" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
+  <div class="d-flex flex-row w-100 justify-content-end">
+  </div>
+  <h2>Proyectos</h2>
+  <div *ngIf="proyectos && proyectos.length > 0">      
+    <ul>
+      <li *ngFor="let proyectos of proyectos" class="m-5">
+        <h6>Proyecto: {{proyectos.nombreProye}}</h6>
+        <h6>Url: <a href="{{proyectos.liveUrlProye}}">Portfolio</a></h6>
+        <h6>Descripción: {{proyectos.descripcionProye}}</h6>
+      </li>
+    </ul>
+  </div>
+</nav>
+

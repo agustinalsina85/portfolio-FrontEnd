@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="assets/img/APLogo-20-20.png" alt="Logo Argentina Programa" height="25px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active me-5" aria-current="page" routerLink="/portfolio" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown">Inicio</a>
+        <div class="mt-2 me-5">
+          <a href="https://github.com/agustinalsina85" target="_blank"><i class="bi bi-github logos-redes"
+          style="margin-right: 20px;"></i></a>
+          <a href="https://wa.me/+542984647124" target="_blank"><i class="bi bi-whatsapp logos-redes"
+              style="margin-right: 20px;"></i></a>
+          <a href="mailto:agustinalsina85@gmail.com" target="_blank"><i class="bi bi-envelope logos-redes"></i></a>
+        </div>
+        <button class="btn btn-dark" *ngIf="isAuthenticated" (click)="onClick()">Logout</button>
+        <div class="text-center" *ngIf="!isAuthenticated">
+          <a routerLink="/login" class="btn btn-dark" data-toggle="modal"
+            data-target="#modalLoginForm">Login</a>
+        </div>

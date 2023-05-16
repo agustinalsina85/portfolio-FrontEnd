@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+/* estilo para imagen profile */
+.containercss {
+    max-width: 400px;
+  }
+  
+.profile-image {
+    transition-duration: 0.5s;
+    border-radius: 10%;
+    width: 152px;
+    height: 130px;
+    margin-top: -60px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.profile-image:hover {
+    scale: 1.1;
+}
+
+/* sombras */
+.sombras {
+    transition-duration: 0.5s;
+}
+
+.sombras:hover {
+    box-shadow: 5px 5px 15px rgb(240, 240, 240);
+    scale: 1.01;
+}
+
+/* boton back to top */
+#btn-back-to-top {
+    font-size: 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    align-items: flex-end;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.btn-edit {
+    display: none;
+}
+
+p {
+    font-size: 16px;
+}
+
+.logos-redes {
+    transition-duration: 0.2s;
+    color: rgb(142, 149, 153);
+}
+
+.logos-redes:hover {
+    color: rgb(236, 236, 236);
+}
