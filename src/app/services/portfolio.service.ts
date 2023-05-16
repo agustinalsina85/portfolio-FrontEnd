@@ -7,7 +7,7 @@ import { Observable } from 'rxjs'
 })
 export class PortfolioService {
 
-  urlBackend: string = "https://portfolio-backend-34ht.onrender.com"
+  urlBackend: string = "https://portfolio-backend-34ht.onrender.com/"
 
   constructor(private http:HttpClient) { }
 
