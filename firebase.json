@@ -1,6 +1,12 @@
 {
   "hosting": {
     "public": "dist/portfolio-front-end",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

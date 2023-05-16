@@ -29,14 +29,12 @@ export class HabilidadesComponent {
 
   ngOnInit(): void {
     this.portfolioService.obtenerHabilidades().subscribe((data: Habilidades[]) => {
-      console.log(data);
       this.habilidades = data;
     });
   }
 
   agregarHabilidad() {
     this.portfolioService.agregarHabilidad(this.nuevaHabilidad).subscribe((data: Habilidades) => {
-      console.log(data);
       this.habilidades.push(data);
     });
     this.nuevaHabilidad = {
@@ -54,7 +52,6 @@ export class HabilidadesComponent {
 
   eliminar(id: number) {
     this.portfolioService.eliminarHabilidad(id).subscribe(data => {
-      console.log(data);
       this.habilidades = this.habilidades.filter(habilidad => habilidad.id !== id);
     });
   }

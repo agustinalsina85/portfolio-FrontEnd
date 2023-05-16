@@ -13,7 +13,6 @@ export class ProyectosComponent {
 
   ngOnInit(): void {
     this.portfolioService.obtenerProyectos().subscribe(data => {
-      console.log(data);
       this.proyectos = data;
     });
   }

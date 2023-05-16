@@ -6,7 +6,8 @@
     <ul>
       <li *ngFor="let proyectos of proyectos" class="m-5">
         <h6>Proyecto: {{proyectos.nombreProye}}</h6>
-        <h6>Url: <a href="{{proyectos.liveUrlProye}}">Portfolio</a></h6>
+        <h6>Url: <a href="{{proyectos.liveUrlProye}}" target="_blank">{{proyectos.liveUrlProye}}</a></h6>
+        <h6>Url Repositorio: <a href="{{proyectos.repoUrlProye}}" target="_blank">{{proyectos.repoUrlProye}}</a></h6>
         <h6>Descripción: {{proyectos.descripcionProye}}</h6>
       </li>
     </ul>

@@ -13,7 +13,6 @@ export class EducacionComponent {
 
   ngOnInit(): void {
     this.portfolioService.obtenerEducacion().subscribe(data => {
-      console.log(data);
       this.educacion = data;
     });
   }

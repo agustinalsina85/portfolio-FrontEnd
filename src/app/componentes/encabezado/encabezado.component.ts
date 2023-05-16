@@ -14,7 +14,6 @@ export class EncabezadoComponent {
 
   ngOnInit(): void {
     this.datosEncabezado.obtenerEncabezado().subscribe((data: Persona[]) => {
-      console.log(data);
       this.encabezado = data;
     });
   }

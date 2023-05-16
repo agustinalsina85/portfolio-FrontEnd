@@ -13,7 +13,6 @@ export class ExperienciaComponent {
 
   ngOnInit(): void {
     this.portfolioService.obtenerExperiencia().subscribe(data => {
-      console.log(data);
       this.experiencia = data;
     });
   }
