@@ -1,12 +1,11 @@
 <nav id="inicio" class="container mt-5 p-5 pt-4 rounded-4">
-    <img src="assets/img/Hello_world.jpg" class="img-fluid rounded-5" alt="Banner">
-    <img src="assets/img/profile.jpg" class="img-fluid profile-image" alt="Foto Profile">
-  </nav>
-  <div class="container p-5 pt-4 profile-card bg-dark text-light sombras rounded-4">
-    <div *ngIf="encabezado && encabezado.length > 0">
-      <h2>{{encabezado[1].nombre}}</h2>
-      <h4>{{encabezado[1].ocupacion}}</h4>
-      <h6>{{encabezado[1].domicilio}}</h6>
-      <h6>{{encabezado[1].descripcion}}</h6>
-    </div>    
+  <img src="assets/img/Hello_world.jpg" class="img-fluid rounded-5" alt="Banner">
+  <img src="assets/img/profile.jpg" class="img-fluid profile-image" alt="Foto Profile">
+</nav>
+<div class="container p-5 pt-4 profile-card bg-dark text-light sombras rounded-4">
+  <div *ngFor="let persona of encabezado">
+    <h2>{{persona.nombre}}</h2>
+    <h4>{{persona.ocupacion}}</h4>
+    <h6>{{persona.domicilio}}</h6>
+  </div>
 </div>

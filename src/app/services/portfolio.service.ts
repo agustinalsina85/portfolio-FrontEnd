@@ -9,21 +9,21 @@ export class PortfolioService {
 
   urlBackend: string = "https://portfolio-backend-34ht.onrender.com/"
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  obtenerEncabezado():Observable<any>{
+  obtenerEncabezado(): Observable<any> {
     return this.http.get(this.urlBackend + 'persona/ver');
   }
 
-  obtenerExperiencia():Observable<any>{
+  obtenerExperiencia(): Observable<any> {
     return this.http.get(this.urlBackend + 'experiencia/ver');
   }
 
-  obtenerEducacion():Observable<any>{
+  obtenerEducacion(): Observable<any> {
     return this.http.get(this.urlBackend + 'educacion/ver');
   }
 
-  obtenerHabilidades():Observable<any>{
+  obtenerHabilidades(): Observable<any> {
     return this.http.get(this.urlBackend + 'tecnologia/ver');
   }
 
@@ -35,7 +35,7 @@ export class PortfolioService {
     return this.http.delete(`${this.urlBackend}tecnologia/delete/${idHabilidad}`);
   }
 
-  obtenerProyectos():Observable<any>{
+  obtenerProyectos(): Observable<any> {
     return this.http.get(this.urlBackend + 'proyectos/ver');
   }
 }

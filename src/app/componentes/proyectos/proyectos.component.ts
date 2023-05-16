@@ -9,10 +9,10 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 export class ProyectosComponent {
   proyectos: any[] = [];
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor(private portfolioService: PortfolioService) { }
 
   ngOnInit(): void {
-    this.portfolioService.obtenerProyectos().subscribe(data =>{
+    this.portfolioService.obtenerProyectos().subscribe(data => {
       console.log(data);
       this.proyectos = data;
     });

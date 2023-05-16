@@ -1,11 +1,11 @@
 <nav id="acercade" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
-    <div class="d-flex flex-row w-100 justify-content-end">
-      <button type="button" class="btn btn-primary btn-edit" onclick="cambiar_acercade()" style="display: none;"><i
-          class="bi-pencil"></i></button>
-      <button type="button" class="ms-2 btn btn-danger btn-edit" style="display: none;"><i class="bi-trash"></i></button>
-    </div>
-    <h2>Acerca de</h2>
-    <div *ngIf="encabezado && encabezado.length > 0" class="m-5">
-      <h6>{{encabezado[1].descripcion}}</h6>
-    </div>
-  </nav>
+  <div class="d-flex flex-row w-100 justify-content-end">
+    <button type="button" class="btn btn-primary btn-edit" onclick="cambiar_acercade()" style="display: none;"><i
+        class="bi-pencil"></i></button>
+    <button type="button" class="ms-2 btn btn-danger btn-edit" style="display: none;"><i class="bi-trash"></i></button>
+  </div>
+  <h2>Acerca de</h2>
+  <div *ngFor="let persona of encabezado" class="m-5">
+    <h6>{{persona.descripcion}}</h6>
+  </div>
+</nav>

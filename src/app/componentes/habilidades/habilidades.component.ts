@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { UserService } from 'src/app/services/user.service';
+import { Habilidades } from 'src/app/dto/habilidades';
 
 
 @Component({
@@ -10,10 +11,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HabilidadesComponent {
   isAuthenticated: boolean;
-  habilidades: any[] = [];
-  nuevaHabilidad: any = {
+  habilidades: Habilidades[] = [];
+  nuevaHabilidad: Habilidades = {
+    id: 0,
     tecnologia: '',
-    nivel: ''
+    nivel: '',
+    imgUrlTeconologia: ''
   };
   mostrarFormulario: boolean = false;
 
@@ -25,20 +28,22 @@ export class HabilidadesComponent {
   }
 
   ngOnInit(): void {
-    this.portfolioService.obtenerHabilidades().subscribe(data => {
+    this.portfolioService.obtenerHabilidades().subscribe((data: Habilidades[]) => {
       console.log(data);
       this.habilidades = data;
     });
   }
 
   agregarHabilidad() {
-    this.portfolioService.agregarHabilidad(this.nuevaHabilidad).subscribe(data => {
+    this.portfolioService.agregarHabilidad(this.nuevaHabilidad).subscribe((data: Habilidades) => {
       console.log(data);
       this.habilidades.push(data);
     });
     this.nuevaHabilidad = {
+      id: 0,
       tecnologia: '',
-      nivel: ''
+      nivel: '',
+      imgUrlTeconologia: ''
     };
     this.mostrarFormulario = false;
   }

@@ -1,16 +1,16 @@
 <nav id="experiencia" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
-    <div class="d-flex flex-row w-100 justify-content-end">
-    </div>
-    <h2>Experiencia</h2>
-    <div *ngIf="experiencia && experiencia.length > 0">      
-      <ul>
-        <li *ngFor="let experiencia of experiencia" class="m-5">
-          <h6>Puesto: {{experiencia.puestoExp}}</h6>
-          <h6>Organismo: {{experiencia.organismoExp}}</h6>
-          <h6>Periodo: {{experiencia.periodoExp}}</h6>
-          <h6>Descripción: {{experiencia.descripcionExp}}</h6>
+  <div class="d-flex flex-row w-100 justify-content-end">
+  </div>
+  <h2>Experiencia</h2>
+  <div *ngIf="experiencia && experiencia.length > 0">
+    <ul>
+      <li *ngFor="let experiencia of experiencia" class="m-5">
+        <h6>Puesto: {{experiencia.puestoExp}}</h6>
+        <h6>Organismo: {{experiencia.organismoExp}}</h6>
+        <h6>Periodo: {{experiencia.periodoExp}}</h6>
+        <h6>Descripción: {{experiencia.descripcionExp}}</h6>
 
-        </li>
-      </ul>
-    </div>
-  </nav>
+      </li>
+    </ul>
+  </div>
+</nav>

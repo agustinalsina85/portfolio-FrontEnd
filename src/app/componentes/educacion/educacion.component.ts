@@ -9,10 +9,10 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 export class EducacionComponent {
   educacion: any[] = [];
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor(private portfolioService: PortfolioService) { }
 
   ngOnInit(): void {
-    this.portfolioService.obtenerEducacion().subscribe(data =>{
+    this.portfolioService.obtenerEducacion().subscribe(data => {
       console.log(data);
       this.educacion = data;
     });

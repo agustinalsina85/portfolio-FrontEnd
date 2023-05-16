@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Persona } from 'src/app/dto/persona';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,14 +8,14 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent {
-  encabezado:any[] = [];
+  encabezado: Persona[] = [];
 
-  constructor(private datosEncabezado:PortfolioService) {}
+  constructor(private datosEncabezado: PortfolioService) { }
 
   ngOnInit(): void {
-    this.datosEncabezado.obtenerEncabezado().subscribe(data =>{
+    this.datosEncabezado.obtenerEncabezado().subscribe((data: Persona[]) => {
       console.log(data);
-      this.encabezado=data;
+      this.encabezado = data;
     });
   }
 

@@ -12,7 +12,7 @@ export class NavbarComponent {
 
   constructor(private userService: UserService,
     private router: Router) {
-      this.isAuthenticated = this.userService.getIsAuthenticated();
+    this.isAuthenticated = this.userService.getIsAuthenticated();
   }
 
   ngOnInit(): void {
@@ -21,12 +21,12 @@ export class NavbarComponent {
 
   onClick() {
     this.userService.logout()
-    .then(() => {
-      this.router.navigate(['/login'])
-      location.reload()
+      .then(() => {
+        this.router.navigate(['/login'])
+        location.reload()
 
-    })
-    .catch(error => console.log(error));
+      })
+      .catch(error => console.log(error));
   }
 
 }

@@ -1,24 +1,24 @@
 <app-navbar></app-navbar>
 <div class="m-5 containercss">
-    <h2>Login de usuario</h2>
-    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-      <div class="mb-3 ">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email"
+  <h2>Login de usuario</h2>
+  <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <div class="mb-3 ">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" formControlName="email"
         [ngClass]="{'is-invalid': formLogin.get('email')?.errors && formLogin.get('email')?.touched, 'is-valid': !formLogin.get('email')?.errors && formLogin.get('email')?.touched}">
-        <div *ngIf="formLogin.get('email')?.errors && (formLogin.get('email')?.touched || formLogin.get('email')?.dirty)">
-          <p *ngIf="formLogin.get('email')?.hasError('required')" class="text-danger" id="email-error">
-            El email es requerido.
-          </p>
-          <p *ngIf="formLogin.get('email')?.hasError('email')" class="text-danger" id="email-format-error">
-            El formato del email debe ser válido.
-          </p>
-        </div>
+      <div *ngIf="formLogin.get('email')?.errors && (formLogin.get('email')?.touched || formLogin.get('email')?.dirty)">
+        <p *ngIf="formLogin.get('email')?.hasError('required')" class="text-danger" id="email-error">
+          El email es requerido.
+        </p>
+        <p *ngIf="formLogin.get('email')?.hasError('email')" class="text-danger" id="email-format-error">
+          El formato del email debe ser válido.
+        </p>
       </div>
-      <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" formControlName="password">
-      </div>
-      <input type="submit" value="Enviar">
-    </form>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <input type="submit" value="Enviar">
+  </form>
 </div>

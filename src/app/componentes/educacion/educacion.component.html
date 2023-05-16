@@ -1,23 +1,18 @@
 <nav id="educacion" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
-    <div class="d-flex flex-row w-100 justify-content-end">
-    </div>
-    <h2>Educacion</h2>
-    <div *ngIf="educacion && educacion.length > 0">      
-      <ul>
-        <li *ngFor="let educacion of educacion" class="m-5">
-          <h6>Titulo: {{educacion.tituloEdu}}</h6>
-          <h6>Institucion: {{educacion.institucionEdu}}</h6>
-          <h6>Periodo: {{educacion.periodoEdu}}</h6>
-          <h6>Descripción: {{educacion.descripcionEdu}}</h6>
+  <div class="d-flex flex-row w-100 justify-content-end">
+  </div>
+  <h2>Educacion</h2>
+  <div *ngIf="educacion && educacion.length > 0">
+    <ul>
+      <li *ngFor="let educacion of educacion" class="m-5">
+        <h6>Titulo: {{educacion.tituloEdu}}</h6>
+        <h6>Institucion: {{educacion.institucionEdu}}</h6>
+        <h6>Periodo: {{educacion.periodoEdu}}</h6>
+        <h6>Descripción: {{educacion.descripcionEdu}}</h6>
 
-        </li>
-      </ul>
-      <!-- <p>Puesto: {{educacion[0].puestoExp}}</p>
-      <input id="edit-educacion" type="text" oninput="myFunction2(this.value)" style="display: none;"> -->
-    </div>
-    <!-- <div>
-      <h2>Educación</h2>
-      <p id="text-educacion">Educacion</p>
-      <input id="edit-educacion" type="text" oninput="myFunction3(this.value)" style="display: none;">
-    </div> -->
-  </nav>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>

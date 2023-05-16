@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private auth: Auth) { }
 
-  login({email, password}: any) {
+  login({ email, password }: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then(response => {
         this.setIsAuthenticated(true);
@@ -17,7 +17,7 @@ export class UserService {
       });
   }
 
-  logout(){
+  logout() {
     return signOut(this.auth);
   }
 

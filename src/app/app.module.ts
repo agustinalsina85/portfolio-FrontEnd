@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { LoginComponent } from './componentes/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
@@ -18,6 +18,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PortfolioService } from './services/portfolio.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +40,11 @@ import { HttpClientModule } from '@angular/common/http';
     provideAuth(() => getAuth()),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    PortfolioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
