@@ -2,17 +2,29 @@
   <div class="d-flex flex-row w-100 justify-content-end">
   </div>
   <h2>Educacion</h2>
-  <div *ngIf="educacion && educacion.length > 0">
+  <div *ngIf="educaciones && educaciones.length > 0">
     <ul>
-      <li *ngFor="let educacion of educacion" class="m-5">
+      <li *ngFor="let educacion of educaciones" class="m-5">
         <h6>Titulo: {{educacion.tituloEdu}}</h6>
         <h6>Institucion: {{educacion.institucionEdu}}</h6>
         <h6>Periodo: {{educacion.periodoEdu}}</h6>
         <h6>Descripción: {{educacion.descripcionEdu}}</h6>
-
+        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
+              (click)="eliminar(educacion.id)"><i class="bi-trash"></i></button>
       </li>
     </ul>
-
+    <div class="d-flex flex-row w-100">
+      <button *ngIf="isAuthenticated" type="button" class="btn btn-primary"
+        (click)="toggleFormulario()">Agregar <i class="bi-plus-circle"></i></button>
+    </div>
+    <div *ngIf="mostrarFormulario">
+      <div class="mb-3">
+        <form (ngSubmit)="agregarEducacion()" class="ms-5">
+          <input type="text" name="tituloEdu" [(ngModel)]="nuevaEducacion.tituloEdu" placeholder="Titulo">
+          <input type="text" name="institucionEdu" [(ngModel)]="nuevaEducacion.institucionEdu" placeholder="Institucion">
+          <input type="text" name="periodoEdu" [(ngModel)]="nuevaEducacion.periodoEdu" placeholder="Periodo">
+          <input type="text" name="descripcionEdu" [(ngModel)]="nuevaEducacion.descripcionEdu" placeholder="Descripción">
+          <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+        </form>
+      </div>
   </div>
-
-</nav>

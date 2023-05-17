@@ -11,6 +11,7 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) { }
 
+  //Experiencia
   obtenerEncabezado(): Observable<any> {
     return this.http.get(this.urlBackend + 'persona/ver');
   }
@@ -19,10 +20,28 @@ export class PortfolioService {
     return this.http.get(this.urlBackend + 'experiencia/ver');
   }
 
+  agregarExperiencia(experiencia: any): Observable<any> {
+    return this.http.post(this.urlBackend + 'experiencia/nueva', experiencia);
+  }
+
+  eliminarExperiencia(idExperiencia: number): Observable<any> {
+    return this.http.delete(`${this.urlBackend}experiencia/delete/${idExperiencia}`);
+  }
+
+  //Educacion
   obtenerEducacion(): Observable<any> {
     return this.http.get(this.urlBackend + 'educacion/ver');
   }
 
+  agregarEducacion(educacion: any): Observable<any> {
+    return this.http.post(this.urlBackend + 'educacion/nueva', educacion);
+  }
+
+  eliminarEducacion(idEducacion: number): Observable<any> {
+    return this.http.delete(`${this.urlBackend}educacion/delete/${idEducacion}`);
+  }
+
+  //Habilidades
   obtenerHabilidades(): Observable<any> {
     return this.http.get(this.urlBackend + 'tecnologia/ver');
   }
@@ -35,7 +54,16 @@ export class PortfolioService {
     return this.http.delete(`${this.urlBackend}tecnologia/delete/${idHabilidad}`);
   }
 
+  //Proyectos
   obtenerProyectos(): Observable<any> {
     return this.http.get(this.urlBackend + 'proyectos/ver');
+  }
+
+  agregarProyecto(proyecto: any): Observable<any> {
+    return this.http.post(this.urlBackend + 'proyectos/nueva', proyecto);
+  }
+
+  eliminarProyecto(idProyecto: number): Observable<any> {
+    return this.http.delete(`${this.urlBackend}proyectos/delete/${idProyecto}`);
   }
 }
