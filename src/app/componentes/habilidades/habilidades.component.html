@@ -1,31 +1,34 @@
 <nav id="habilidades" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
-  <div class="d-flex flex-row w-100 justify-content-end">
-    <button *ngIf="isAuthenticated" type="button" class="btn btn-primary btn-edit" (click)="toggleFormulario()">Agregar  <i
-      class="bi-plus-circle"></i></button>
-  </div>
   <h2>Habilidades</h2>
   <div>
-    <div *ngIf="habilidades && habilidades.length > 0">      
+    <div *ngIf="habilidades && habilidades.length > 0">
       <ul>
         <li *ngFor="let habilidad of habilidades" class="m-5">
           <h6>{{habilidad?.tecnologia}}</h6>
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{ 'width': habilidad?.nivel + '%' }" 
-            aria-label="Basic example" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="habilidad?.nivel">{{habilidad?.nivel}}%</div>
-        </div><br><button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit" (click)="eliminar(habilidad.id)"><i class="bi-trash"></i></button>
+          <div class="d-flex">
+            <div class="progress flex-grow-1">
+              <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{ 'width': habilidad?.nivel + '%' }"
+                aria-label="Basic example" aria-valuemin="0" aria-valuemax="100"
+                [attr.aria-valuenow]="habilidad?.nivel">{{habilidad?.nivel}}%</div>
+            </div>
+            <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
+              (click)="eliminar(habilidad.id)"><i class="bi-trash"></i></button>
+          </div><br>
         </li>
       </ul>
+      <div class="d-flex flex-row w-100">
+        <button *ngIf="isAuthenticated" type="button" class="btn btn-primary"
+          (click)="toggleFormulario()">Agregar <i class="bi-plus-circle"></i></button>
+      </div>
       <div *ngIf="mostrarFormulario">
         <div class="mb-3">
-        <form (ngSubmit)="agregarHabilidad()" class="ms-5">
-          <input type="text" name="nombre" [(ngModel)]="nuevaHabilidad.tecnologia" placeholder="Nombre">
-          <input type="text" name="nivel" [(ngModel)]="nuevaHabilidad.nivel" placeholder="Nivel">
-          <button class="btn btn-success m-4" type="submit">Agregar</button>
-        </form>
+          <form (ngSubmit)="agregarHabilidad()" class="ms-5">
+            <input type="text" name="nombre" [(ngModel)]="nuevaHabilidad.tecnologia" placeholder="Nombre">
+            <input type="text" name="nivel" [(ngModel)]="nuevaHabilidad.nivel" placeholder="Nivel">
+            <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+          </form>
         </div>
       </div>
     </div>
-
   </div>
 </nav>
- 

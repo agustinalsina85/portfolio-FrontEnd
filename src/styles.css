@@ -27,25 +27,6 @@
     scale: 1.01;
 }
 
-/* boton back to top */
-#btn-back-to-top {
-    font-size: 30px;
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    display: none;
-    align-items: flex-end;
-}
-
-.stop-scrolling {
-    height: 100%;
-    overflow: hidden;
-}
-
-.btn-edit {
-    display: none;
-}
-
 p {
     font-size: 16px;
 }
