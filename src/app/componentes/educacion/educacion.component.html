@@ -5,10 +5,10 @@
   <div *ngIf="educaciones && educaciones.length > 0">
     <ul>
       <li *ngFor="let educacion of educaciones" class="m-5">
-        <h6>Titulo: {{educacion.tituloEdu}}</h6>
-        <h6>Institucion: {{educacion.institucionEdu}}</h6>
-        <h6>Periodo: {{educacion.periodoEdu}}</h6>
-        <h6>Descripción: {{educacion.descripcionEdu}}</h6>
+        <h6>Titulo: {{educacion?.tituloEdu}}</h6>
+        <h6>Institucion: {{educacion?.institucionEdu}}</h6>
+        <h6>Periodo: {{educacion?.periodoEdu}}</h6>
+        <h6>Descripción: {{educacion?.descripcionEdu}}</h6>
         <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
               (click)="eliminar(educacion.id)"><i class="bi-trash"></i></button>
       </li>

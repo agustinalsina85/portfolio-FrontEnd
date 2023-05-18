@@ -5,10 +5,10 @@
   <div *ngIf="proyectos && proyectos.length > 0">
     <ul>
       <li *ngFor="let proyecto of proyectos" class="m-5">
-        <h6>Proyecto: {{proyecto.nombreProye}}</h6>
-        <h6>Url: <a href="{{proyecto.liveUrlProye}}" target="_blank">{{proyecto.liveUrlProye}}</a></h6>
-        <h6>Url Repositorio: <a href="{{proyecto.repoUrlProye}}" target="_blank">{{proyecto.repoUrlProye}}</a></h6>
-        <h6>Descripción: {{proyecto.descripcionProye}}</h6>
+        <h6>Proyecto: {{proyecto?.nombreProye}}</h6>
+        <h6>Url: <a href="{{proyecto?.liveUrlProye}}" target="_blank">{{proyecto?.liveUrlProye}}</a></h6>
+        <h6>Url Repositorio: <a href="{{proyecto?.repoUrlProye}}" target="_blank">{{proyecto?.repoUrlProye}}</a></h6>
+        <h6>Descripción: {{proyecto?.descripcionProye}}</h6>
         <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
               (click)="eliminar(proyecto.id)"><i class="bi-trash"></i></button>
       </li>

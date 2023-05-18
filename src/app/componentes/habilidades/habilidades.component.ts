@@ -25,7 +25,10 @@ export class HabilidadesComponent {
     private userService: UserService
   ) {
     this.isAuthenticated = this.userService.getIsAuthenticated();
-  }
+    this.userService.getAuthState().subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+  });
+}
 
   ngOnInit(): void {
     this.portfolioService.obtenerHabilidades().subscribe((data: Habilidades[]) => {

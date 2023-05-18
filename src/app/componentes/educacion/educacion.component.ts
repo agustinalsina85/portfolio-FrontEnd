@@ -3,7 +3,6 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 import { UserService } from 'src/app/services/user.service';
 import { Educaciones } from 'src/app/dto/educaciones';
 
-
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
@@ -27,6 +26,9 @@ export class EducacionComponent {
     private userService: UserService
   ) {
     this.isAuthenticated = this.userService.getIsAuthenticated();
+    this.userService.getAuthState().subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+    });
   }
 
   ngOnInit(): void {

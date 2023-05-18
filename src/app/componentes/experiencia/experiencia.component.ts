@@ -27,7 +27,10 @@ export class ExperienciaComponent {
     private userService: UserService
   ) {
     this.isAuthenticated = this.userService.getIsAuthenticated();
-  }
+    this.userService.getAuthState().subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+  });
+}
 
   ngOnInit(): void {
     this.portfolioService.obtenerExperiencia().subscribe((data: Experiencias[]) => {
