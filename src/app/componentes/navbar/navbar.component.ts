@@ -23,8 +23,6 @@ export class NavbarComponent implements OnInit {
   onClick() {
     this.userService.logout()
       .then(() => {
-        this.router.navigate(['/login'])
-        location.reload()
       })
       .catch(error => console.log(error));
   }

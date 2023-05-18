@@ -1,24 +1,37 @@
-<app-navbar></app-navbar>
-<div class="m-5 containercss">
-  <h2>Login de usuario</h2>
-  <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-    <div class="mb-3 ">
-      <label class="form-label">Email</label>
-      <input type="text" class="form-control" formControlName="email"
-        [ngClass]="{'is-invalid': formLogin.get('email')?.errors && formLogin.get('email')?.touched, 'is-valid': !formLogin.get('email')?.errors && formLogin.get('email')?.touched}">
-      <div *ngIf="formLogin.get('email')?.errors && (formLogin.get('email')?.touched || formLogin.get('email')?.dirty)">
-        <p *ngIf="formLogin.get('email')?.hasError('required')" class="text-danger" id="email-error">
-          El email es requerido.
-        </p>
-        <p *ngIf="formLogin.get('email')?.hasError('email')" class="text-danger" id="email-format-error">
-          El formato del email debe ser válido.
-        </p>
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Login
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesion</h1>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" formControlName="email"
+              [ngClass]="{'is-invalid': formLogin.get('email')?.errors && formLogin.get('email')?.touched, 'is-valid': !formLogin.get('email')?.errors && formLogin.get('email')?.touched}">
+            <div
+              *ngIf="formLogin.get('email')?.errors && (formLogin.get('email')?.touched || formLogin.get('email')?.dirty)">
+              <p *ngIf="formLogin.get('email')?.hasError('required')" class="text-danger" id="email-error">
+                El email es requerido.
+              </p>
+              <p *ngIf="formLogin.get('email')?.hasError('email')" class="text-danger" id="email-format-error">
+                El formato del email debe ser válido.
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password">
+          </div>
+          <input type="submit" class="btn btn-primary me-4" value="Login" data-bs-dismiss="modal">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </form>
       </div>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password">
-    </div>
-    <input type="submit" value="Enviar">
-  </form>
+  </div>
 </div>
