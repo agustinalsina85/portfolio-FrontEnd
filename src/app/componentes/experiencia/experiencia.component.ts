@@ -40,7 +40,12 @@ export class ExperienciaComponent {
 
   agregarExperiencia() {
     this.portfolioService.agregarExperiencia(this.nuevaExperiencia).subscribe((data: Experiencias) => {
-      this.experiencias.push(data);
+      if (this.nuevaExperiencia.id) {
+        const index = this.experiencias.findIndex(exp => exp.id === data.id);
+        this.experiencias[index] = data;
+      } else {
+        this.experiencias.push(data);
+      }
     });
     this.nuevaExperiencia = {
       id: 0,
@@ -61,5 +66,10 @@ export class ExperienciaComponent {
     this.portfolioService.eliminarExperiencia(id).subscribe(data => {
       this.experiencias = this.experiencias.filter(experiencia => experiencia.id !== id);
     });
+  }
+
+  editar(experiencia: Experiencias) {
+    this.nuevaExperiencia = {...experiencia};
+    this.mostrarFormulario = true;
   }
 }
