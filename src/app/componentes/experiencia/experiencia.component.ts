@@ -58,8 +58,16 @@ export class ExperienciaComponent {
     };
     this.mostrarFormulario = false;
   }
-
+ 
   toggleFormulario() {
+    this.nuevaExperiencia = {
+      id: 0,
+      puestoExp: '',
+      organismoExp: '',
+      periodoExp: '',
+      urlLogoExp: '',
+      descripcionExp: ''
+    };
     this.mostrarFormulario = !this.mostrarFormulario;
   }
 

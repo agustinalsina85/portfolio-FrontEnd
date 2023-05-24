@@ -56,6 +56,12 @@ export class HabilidadesComponent {
   }
 
   toggleFormulario() {
+    this.nuevaHabilidad = {
+      id: 0,
+      tecnologia: '',
+      nivel: '',
+      imgUrlTeconologia: ''
+    };
     this.mostrarFormulario = !this.mostrarFormulario;
   }
 

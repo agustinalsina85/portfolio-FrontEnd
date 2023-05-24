@@ -59,6 +59,14 @@ export class EducacionComponent {
   }
 
   toggleFormulario() {
+    this.nuevaEducacion = {
+      id: 0,
+      tituloEdu: '',
+      institucionEdu: '',
+      periodoEdu: '',
+      urlLogoEdu: '',
+      descripcionEdu: ''
+    };
     this.mostrarFormulario = !this.mostrarFormulario;
   }
 

@@ -60,6 +60,14 @@ export class ProyectosComponent {
   }
 
   toggleFormulario() {
+    this.nuevaProyecto = {
+      id: 0,
+      nombreProye: '',
+      repoUrlProye: '',
+      liveUrlProye: '',
+      imgUrlProye: '',
+      descripcionProye: ''
+    };
     this.mostrarFormulario = !this.mostrarFormulario;
   }
 
