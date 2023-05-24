@@ -39,7 +39,12 @@ export class EducacionComponent {
 
   agregarEducacion() {
     this.portfolioService.agregarEducacion(this.nuevaEducacion).subscribe((data: Educaciones) => {
-      this.educaciones.push(data);
+      if (this.nuevaEducacion.id) {
+        const index = this.educaciones.findIndex(edu => edu.id === data.id);
+        this.educaciones[index] = data;
+      } else {
+        this.educaciones.push(data);
+      }
     });
     this.nuevaEducacion = {
       id: 0,
@@ -60,5 +65,10 @@ export class EducacionComponent {
     this.portfolioService.eliminarEducacion(id).subscribe(data => {
       this.educaciones = this.educaciones.filter(educacion => educacion.id !== id);
     });
+  }
+
+  editar(educacion: Educaciones) {
+    this.nuevaEducacion = {...educacion};
+    this.mostrarFormulario = true;
   }
 }

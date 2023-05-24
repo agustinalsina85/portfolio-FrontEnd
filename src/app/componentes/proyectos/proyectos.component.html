@@ -9,25 +9,42 @@
         <h6>Url: <a href="{{proyecto?.liveUrlProye}}" target="_blank">{{proyecto?.liveUrlProye}}</a></h6>
         <h6>Url Repositorio: <a href="{{proyecto?.repoUrlProye}}" target="_blank">{{proyecto?.repoUrlProye}}</a></h6>
         <h6>Descripción: {{proyecto?.descripcionProye}}</h6>
+        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-warning btn-edit"
+          (click)="editar(proyecto)"><i class="bi-pencil"></i></button>
         <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
-              (click)="eliminar(proyecto.id)"><i class="bi-trash"></i></button>
+          (click)="eliminar(proyecto.id)"><i class="bi-trash"></i></button>
       </li>
     </ul>
     <div class="d-flex flex-row w-100">
-      <button *ngIf="isAuthenticated" type="button" class="btn btn-primary"
-        (click)="toggleFormulario()">Agregar <i class="bi-plus-circle"></i></button>
+      <button *ngIf="isAuthenticated" type="button" class="btn btn-primary mb-5"
+        (click)="toggleFormulario()">Agregar</button>
     </div>
     <div *ngIf="mostrarFormulario">
       <div class="mb-3">
-        <form (ngSubmit)="agregarProyecto()" class="ms-5">
-          <input type="text" name="nombre" [(ngModel)]="nuevaProyecto.nombreProye" placeholder="Nombre">
-          <input type="text" name="liveUrlProye" [(ngModel)]="nuevaProyecto.liveUrlProye" placeholder="LiveURL">
-          <input type="text" name="repoUrlProye" [(ngModel)]="nuevaProyecto.repoUrlProye" placeholder="Repositorio">
-          <input type="text" name="descripcionProye" [(ngModel)]="nuevaProyecto.descripcionProye" placeholder="Descripción">
-          <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+        <form (ngSubmit)="agregarProyecto()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Nombre:</label>
+              <input type="text" class="form-control mb-3" name="nombre" [(ngModel)]="nuevaProyecto.nombreProye" placeholder="Nombre">
+            </div>
+            <div class="form-group col-md-6">
+              <label>URL Live:</label>
+              <input type="text" class="form-control mb-3" name="liveUrlProye" [(ngModel)]="nuevaProyecto.liveUrlProye" placeholder="LiveURL">
+            </div>
+            <div class="form-group col-md-6">
+              <label>URL Repositorio:</label>
+              <input type="text" class="form-control mb-3" name="repoUrlProye" [(ngModel)]="nuevaProyecto.repoUrlProye" placeholder="Repositorio">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Descripción:</label>
+              <input type="text" class="form-control mb-3" name="descripcionProye" [(ngModel)]="nuevaProyecto.descripcionProye"
+                placeholder="Descripción">
+            </div>
+            <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+          </div>
         </form>
       </div>
     </div>
   </div>
-  
+
 </nav>

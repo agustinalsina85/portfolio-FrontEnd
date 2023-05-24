@@ -11,21 +11,31 @@
                 aria-label="Basic example" aria-valuemin="0" aria-valuemax="100"
                 [attr.aria-valuenow]="habilidad?.nivel">{{habilidad?.nivel}}%</div>
             </div>
+            <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-warning btn-edit"
+              (click)="editar(habilidad)"><i class="bi-pencil"></i></button>
             <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
               (click)="eliminar(habilidad.id)"><i class="bi-trash"></i></button>
           </div><br>
         </li>
       </ul>
       <div class="d-flex flex-row w-100">
-        <button *ngIf="isAuthenticated" type="button" class="btn btn-primary"
-          (click)="toggleFormulario()">Agregar <i class="bi-plus-circle"></i></button>
+        <button *ngIf="isAuthenticated" type="button" class="btn btn-primary mb-5"
+          (click)="toggleFormulario()">Agregar</button>
       </div>
       <div *ngIf="mostrarFormulario">
         <div class="mb-3">
-          <form (ngSubmit)="agregarHabilidad()" class="ms-5">
-            <input type="text" name="nombre" [(ngModel)]="nuevaHabilidad.tecnologia" placeholder="Nombre">
-            <input type="text" name="nivel" [(ngModel)]="nuevaHabilidad.nivel" placeholder="Nivel">
-            <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+          <form (ngSubmit)="agregarHabilidad()">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Habilidad:</label>
+                <input type="text" class="form-control mb-3" name="nombre" [(ngModel)]="nuevaHabilidad.tecnologia" placeholder="Nombre">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Nivel:</label>
+                <input type="text" class="form-control mb-3" name="nivel" [(ngModel)]="nuevaHabilidad.nivel" placeholder="Nivel">
+              </div>
+               <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+            </div>
           </form>
         </div>
       </div>

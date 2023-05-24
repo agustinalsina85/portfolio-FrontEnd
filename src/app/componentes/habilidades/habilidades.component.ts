@@ -38,7 +38,12 @@ export class HabilidadesComponent {
 
   agregarHabilidad() {
     this.portfolioService.agregarHabilidad(this.nuevaHabilidad).subscribe((data: Habilidades) => {
-      this.habilidades.push(data);
+      if (this.nuevaHabilidad.id) {
+        const index = this.habilidades.findIndex(hab => hab.id);
+        this.habilidades[index] = data;
+      } else {
+        this.habilidades.push(data);
+      }
     });
     this.nuevaHabilidad = {
       id: 0,
@@ -57,5 +62,10 @@ export class HabilidadesComponent {
     this.portfolioService.eliminarHabilidad(id).subscribe(data => {
       this.habilidades = this.habilidades.filter(habilidad => habilidad.id !== id);
     });
+  }
+
+  editar(habilidad: Habilidades) {
+    this.nuevaHabilidad = {...habilidad};
+    this.mostrarFormulario = true;
   }
 }

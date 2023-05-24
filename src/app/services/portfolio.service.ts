@@ -11,11 +11,12 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) { }
 
-  //Experiencia
+  
   obtenerEncabezado(): Observable<any> {
     return this.http.get(this.urlBackend + 'persona/ver');
   }
-
+  
+  //Experiencia
   obtenerExperiencia(): Observable<any> {
     return this.http.get(this.urlBackend + 'experiencia/ver');
   }

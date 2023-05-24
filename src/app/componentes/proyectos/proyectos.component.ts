@@ -40,7 +40,12 @@ export class ProyectosComponent {
 
   agregarProyecto() {
     this.portfolioService.agregarProyecto(this.nuevaProyecto).subscribe((data: Proyectos) => {
-      this.proyectos.push(data);
+      if (this.nuevaProyecto.id) {
+        const index = this.proyectos.findIndex(proye => proye.id === data.id);
+        this.proyectos[index] = data;
+      } else {
+        this.proyectos.push(data);
+      }
     });
     this.nuevaProyecto = {
       id: 0,
@@ -61,5 +66,10 @@ export class ProyectosComponent {
     this.portfolioService.eliminarProyecto(id).subscribe(data => {
       this.proyectos = this.proyectos.filter(proyecto => proyecto.id !== id);
     });
+  }
+
+  editar(proyecto: Proyectos) {
+    this.nuevaProyecto = {...proyecto};
+    this.mostrarFormulario = true;
   }
 }

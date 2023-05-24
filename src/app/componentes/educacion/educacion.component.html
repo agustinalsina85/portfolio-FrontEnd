@@ -9,22 +9,40 @@
         <h6>Institucion: {{educacion?.institucionEdu}}</h6>
         <h6>Periodo: {{educacion?.periodoEdu}}</h6>
         <h6>Descripción: {{educacion?.descripcionEdu}}</h6>
+        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-warning btn-edit"
+          (click)="editar(educacion)"><i class="bi-pencil"></i></button>
         <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
-              (click)="eliminar(educacion.id)"><i class="bi-trash"></i></button>
+          (click)="eliminar(educacion.id)"><i class="bi-trash"></i></button>
       </li>
     </ul>
     <div class="d-flex flex-row w-100">
-      <button *ngIf="isAuthenticated" type="button" class="btn btn-primary"
-        (click)="toggleFormulario()">Agregar <i class="bi-plus-circle"></i></button>
+      <button *ngIf="isAuthenticated" type="button" class="btn btn-primary mb-5"
+        (click)="toggleFormulario()">Agregar</button>
     </div>
     <div *ngIf="mostrarFormulario">
       <div class="mb-3">
-        <form (ngSubmit)="agregarEducacion()" class="ms-5">
-          <input type="text" name="tituloEdu" [(ngModel)]="nuevaEducacion.tituloEdu" placeholder="Titulo">
-          <input type="text" name="institucionEdu" [(ngModel)]="nuevaEducacion.institucionEdu" placeholder="Institucion">
-          <input type="text" name="periodoEdu" [(ngModel)]="nuevaEducacion.periodoEdu" placeholder="Periodo">
-          <input type="text" name="descripcionEdu" [(ngModel)]="nuevaEducacion.descripcionEdu" placeholder="Descripción">
-          <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+        <form (ngSubmit)="agregarEducacion()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Titulo:</label>
+              <input type="text" class="form-control mb-3" name="tituloEdu" [(ngModel)]="nuevaEducacion.tituloEdu" placeholder="Titulo">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Institucion:</label>
+              <input type="text" class="form-control mb-3" name="institucionEdu" [(ngModel)]="nuevaEducacion.institucionEdu"
+                placeholder="Institucion">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Periodo:</label>
+              <input type="text" class="form-control mb-3" name="periodoEdu" [(ngModel)]="nuevaEducacion.periodoEdu" placeholder="Periodo">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Descripción</label>
+              <input type="text" class="form-control mb-3" name="descripcionEdu" [(ngModel)]="nuevaEducacion.descripcionEdu"
+                placeholder="Descripción">
+            </div>
+            <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+          </div>
         </form>
       </div>
-  </div>
+    </div>
