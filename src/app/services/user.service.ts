@@ -23,6 +23,9 @@ export class UserService {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then(response => {
         this.setIsAuthenticated(true);
+        setTimeout(() => {
+          this.logout(); // cierra sesión después de 5 minutos
+        }, 300000);
         return response;
       });
   }
