@@ -46,6 +46,7 @@ export class ExperienciaComponent {
       } else {
         this.experiencias.push(data);
       }
+      location.reload();
     });
     this.nuevaExperiencia = {
       id: 0,

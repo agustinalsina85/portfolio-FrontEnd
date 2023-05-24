@@ -46,6 +46,7 @@ export class ProyectosComponent {
       } else {
         this.proyectos.push(data);
       }
+      location.reload();
     });
     this.nuevaProyecto = {
       id: 0,

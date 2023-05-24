@@ -44,6 +44,7 @@ export class HabilidadesComponent {
       } else {
         this.habilidades.push(data);
       }
+      location.reload();
     });
     this.nuevaHabilidad = {
       id: 0,

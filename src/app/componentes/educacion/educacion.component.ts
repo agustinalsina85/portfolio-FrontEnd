@@ -45,6 +45,7 @@ export class EducacionComponent {
       } else {
         this.educaciones.push(data);
       }
+      location.reload();
     });
     this.nuevaEducacion = {
       id: 0,
