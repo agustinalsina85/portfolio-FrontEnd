@@ -29,8 +29,8 @@ export class ProyectosComponent {
     this.isAuthenticated = this.userService.getIsAuthenticated();
     this.userService.getAuthState().subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
-  });
-}
+    });
+  }
 
   ngOnInit(): void {
     this.portfolioService.obtenerProyectos().subscribe((data: Proyectos[]) => {
@@ -46,7 +46,9 @@ export class ProyectosComponent {
       } else {
         this.proyectos.push(data);
       }
-      location.reload();
+      this.portfolioService.obtenerProyectos().subscribe((data: Proyectos[]) => {
+        this.proyectos = data;
+      });
     });
     this.nuevaProyecto = {
       id: 0,
@@ -78,7 +80,7 @@ export class ProyectosComponent {
   }
 
   editar(proyecto: Proyectos) {
-    this.nuevaProyecto = {...proyecto};
+    this.nuevaProyecto = { ...proyecto };
     this.mostrarFormulario = true;
   }
 }

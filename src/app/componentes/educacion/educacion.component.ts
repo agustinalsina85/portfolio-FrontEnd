@@ -45,7 +45,9 @@ export class EducacionComponent {
       } else {
         this.educaciones.push(data);
       }
-      location.reload();
+      this.portfolioService.obtenerEducacion().subscribe((data: Educaciones[]) => {
+        this.educaciones = data;
+      });
     });
     this.nuevaEducacion = {
       id: 0,
@@ -77,7 +79,7 @@ export class EducacionComponent {
   }
 
   editar(educacion: Educaciones) {
-    this.nuevaEducacion = {...educacion};
+    this.nuevaEducacion = { ...educacion };
     this.mostrarFormulario = true;
   }
 }

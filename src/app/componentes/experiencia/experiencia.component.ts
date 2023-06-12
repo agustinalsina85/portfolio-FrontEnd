@@ -29,8 +29,8 @@ export class ExperienciaComponent {
     this.isAuthenticated = this.userService.getIsAuthenticated();
     this.userService.getAuthState().subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
-  });
-}
+    });
+  }
 
   ngOnInit(): void {
     this.portfolioService.obtenerExperiencia().subscribe((data: Experiencias[]) => {
@@ -46,7 +46,9 @@ export class ExperienciaComponent {
       } else {
         this.experiencias.push(data);
       }
-      location.reload();
+      this.portfolioService.obtenerExperiencia().subscribe((data: Experiencias[]) => {
+        this.experiencias = data;
+      });
     });
     this.nuevaExperiencia = {
       id: 0,
@@ -58,7 +60,7 @@ export class ExperienciaComponent {
     };
     this.mostrarFormulario = false;
   }
- 
+
   toggleFormulario() {
     this.nuevaExperiencia = {
       id: 0,
@@ -78,7 +80,7 @@ export class ExperienciaComponent {
   }
 
   editar(experiencia: Experiencias) {
-    this.nuevaExperiencia = {...experiencia};
+    this.nuevaExperiencia = { ...experiencia };
     this.mostrarFormulario = true;
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { UserService } from 'src/app/services/user.service';
 import { Habilidades } from 'src/app/dto/habilidades';
-
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-habilidades',
@@ -22,13 +22,14 @@ export class HabilidadesComponent {
 
   constructor(
     private portfolioService: PortfolioService,
-    private userService: UserService
+    private userService: UserService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.isAuthenticated = this.userService.getIsAuthenticated();
     this.userService.getAuthState().subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
-  });
-}
+    });
+  }
 
   ngOnInit(): void {
     this.portfolioService.obtenerHabilidades().subscribe((data: Habilidades[]) => {
@@ -44,7 +45,9 @@ export class HabilidadesComponent {
       } else {
         this.habilidades.push(data);
       }
-      location.reload();
+      this.portfolioService.obtenerHabilidades().subscribe((data: Habilidades[]) => {
+        this.habilidades = data;
+      });
     });
     this.nuevaHabilidad = {
       id: 0,
@@ -72,7 +75,7 @@ export class HabilidadesComponent {
   }
 
   editar(habilidad: Habilidades) {
-    this.nuevaHabilidad = {...habilidad};
+    this.nuevaHabilidad = { ...habilidad };
     this.mostrarFormulario = true;
   }
 }
