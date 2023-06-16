@@ -18,6 +18,12 @@ export class NavbarComponent implements OnInit {
     this.userService.getAuthState().subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
     });
+    this.updateMenuLinks();
+    window.addEventListener('resize', this.updateMenuLinks);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.updateMenuLinks);
   }
 
   onClick() {
@@ -25,5 +31,33 @@ export class NavbarComponent implements OnInit {
       .then(() => {
       })
       .catch(error => console.log(error));
+      window.location.reload();
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    const navbar = document.querySelector('.fixed-top');
+    if (element && navbar) {
+      setTimeout(() => {
+        const navbarHeight = navbar.clientHeight;
+        const position = element.offsetTop - navbarHeight - 20;
+        window.scrollTo({ top: position, behavior: 'smooth' });
+      }, 300);
+    }
+  }
+
+  updateMenuLinks = () => {
+    const menuLinks = document.querySelectorAll('.navbar-nav a');
+    if (window.innerWidth < 992) {
+      menuLinks.forEach(link => {
+        link.setAttribute('data-bs-toggle', 'collapse');
+        link.setAttribute('data-bs-target', '#navbarNavAltMarkup');
+      });
+    } else {
+      menuLinks.forEach(link => {
+        link.removeAttribute('data-bs-toggle');
+        link.removeAttribute('data-bs-target');
+      });
+    }
   }
 }

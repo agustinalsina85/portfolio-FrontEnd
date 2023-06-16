@@ -1,4 +1,4 @@
-<nav id="educacion" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
+<nav id="educacion" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras">
   <div class="d-flex flex-row w-100 justify-content-end">
   </div>
   <h2>Educacion</h2>
@@ -9,7 +9,7 @@
         <h6>Institucion: {{educacion?.institucionEdu}}</h6>
         <h6>Periodo: {{educacion?.periodoEdu}}</h6>
         <h6>Descripción: {{educacion?.descripcionEdu}}</h6>
-        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-warning btn-edit"
+        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-primary btn-edit"
           (click)="editar(educacion)"><i class="bi-pencil"></i></button>
         <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
           (click)="eliminar(educacion.id)"><i class="bi-trash"></i></button>
@@ -48,3 +48,5 @@
         </form>
       </div>
     </div>
+  </div>
+</nav>

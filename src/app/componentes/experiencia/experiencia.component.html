@@ -1,4 +1,4 @@
-<nav id="experiencia" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras bg-dark text-light">
+<nav id="experiencia" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras">
   <div class="d-flex flex-row w-100 justify-content-end">
   </div>
   <h2>Experiencia</h2>
@@ -9,7 +9,7 @@
         <h6>Organismo: {{experiencia?.organismoExp}}</h6>
         <h6>Periodo: {{experiencia?.periodoExp}}</h6>
         <h6>Descripción: {{experiencia?.descripcionExp}}</h6>
-        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-warning btn-edit"
+        <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-primary btn-edit"
           (click)="editar(experiencia)"><i class="bi-pencil"></i></button>
         <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-danger btn-edit"
           (click)="eliminar(experiencia.id)"><i class="bi-trash"></i></button>
@@ -44,8 +44,9 @@
                 [(ngModel)]="nuevaExperiencia.descripcionExp" placeholder="Descripción">
             </div>
             <button class="btn btn-success m-6" type="submit"><i class="bi bi-check-lg"></i></button>
-
           </div>
         </form>
       </div>
     </div>
+  </div>
+</nav>

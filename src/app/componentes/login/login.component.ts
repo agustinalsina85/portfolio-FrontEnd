@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(error => {
         console.log(error);
-        alert('Error de inicio de sesión');
+        alert('Usuario o contraseña inválida');
       });
   }
 

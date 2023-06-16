@@ -1,8 +1,7 @@
-/* estilo para imagen profile */
-.containercss {
-    max-width: 400px;
-  }
-  
+.profile-card {
+    background-color: #f5f3f4;
+}
+
 .profile-image {
     transition-duration: 0.5s;
     border-radius: 10%;
@@ -32,10 +31,33 @@ p {
 }
 
 .logos-redes {
-    transition-duration: 0.2s;
-    color: rgb(142, 149, 153);
+    color: rgb(0, 0, 0);
 }
 
-.logos-redes:hover {
+.logos-redes:hover {    
+    transition-duration: 0.3s;
     color: rgb(236, 236, 236);
+}
+
+.nav-link {
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-link:hover {    
+    transition-duration: 0.3s;
+    background-color: gray;
+}
+
+.navbar {
+    background-color: #b5b4b4;
+}
+
+.btn {
+    background-color: black;
+}
+
+.arg-prog:hover {
+    transition-duration: 0.4s;
+    scale: 1.15;
+
 }
