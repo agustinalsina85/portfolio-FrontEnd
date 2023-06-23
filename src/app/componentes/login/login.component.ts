@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.formLogin.value)
       .then(response => {
         this.userService.setIsAuthenticated(true);
-        this.router.navigate(['/portfolio']);
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<app-encabezado></app-encabezado>
-<app-acercade></app-acercade>
-<app-habilidades></app-habilidades>
-<app-experiencia></app-experiencia>
-<app-educacion></app-educacion>
-<app-proyectos></app-proyectos>
+<app-encabezado *ngIf="componenteActual === 'inicio'" [@fadeIn]></app-encabezado>
+<app-acercade *ngIf="componenteActual === 'acercade'" [@fadeIn]></app-acercade>
+<app-habilidades *ngIf="componenteActual === 'habilidades'" [@fadeIn]></app-habilidades>
+<app-experiencia *ngIf="componenteActual === 'experiencia'" [@fadeIn]></app-experiencia>
+<app-educacion *ngIf="componenteActual === 'educacion'" [@fadeIn]></app-educacion>
+<app-proyectos *ngIf="componenteActual === 'proyectos'" [@fadeIn]></app-proyectos>

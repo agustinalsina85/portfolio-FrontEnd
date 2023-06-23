@@ -1,19 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable, BehaviorSubject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioService {
 
+  private componenteActual = new BehaviorSubject<string>('inicio');
+  componenteActual$ = this.componenteActual.asObservable();
+
   urlBackend: string = "https://portfolio-backend-34ht.onrender.com/"
 
   constructor(private http: HttpClient) { }
 
-  
+  //Persona
   obtenerEncabezado(): Observable<any> {
     return this.http.get(this.urlBackend + 'persona/ver');
+  }
+
+  agregarEncabezado(encabezado: any): Observable<any> {
+    return this.http.post(this.urlBackend + 'persona/nueva', encabezado);
+  }
+
+  eliminarEncabezado(idEncabezado: number): Observable<any> {
+    return this.http.delete(`${this.urlBackend}persona/delete/${idEncabezado}`);
   }
   
   //Experiencia
@@ -66,5 +77,9 @@ export class PortfolioService {
 
   eliminarProyecto(idProyecto: number): Observable<any> {
     return this.http.delete(`${this.urlBackend}proyectos/delete/${idProyecto}`);
+  }
+
+  mostrarComponente(componente: string) {
+    this.componenteActual.next(componente);
   }
 }

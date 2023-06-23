@@ -19,6 +19,7 @@ import { PortfolioComponent } from './componentes/portfolio/portfolio.component'
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PortfolioService } from './services/portfolio.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PortfolioService } from './services/portfolio.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     PortfolioService

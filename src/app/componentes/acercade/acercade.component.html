@@ -1,11 +1,22 @@
 <nav id="acercade" class="container mt-5 p-5 pt-4 rounded-4 profile-card sombras">
-  <div class="d-flex flex-row w-100 justify-content-end">
-    <button type="button" class="btn btn-primary btn-edit" onclick="cambiar_acercade()" style="display: none;"><i
-        class="bi-pencil"></i></button>
-    <button type="button" class="ms-2 btn btn-danger btn-edit" style="display: none;"><i class="bi-trash"></i></button>
-  </div>
   <h2>Acerca de</h2>
   <div *ngFor="let persona of encabezado" class="m-5">
-    <h6>{{persona.descripcion}}</h6>
+    <h6>{{persona?.descripcion}}</h6>
+    <button *ngIf="isAuthenticated" type="button" class="ms-2 btn btn-primary btn-edit"
+          (click)="editar(persona)"><i class="bi-pencil"></i></button>
+  </div>
+  <div *ngIf="mostrarFormulario">
+    <div class="mb-3">
+      <form (ngSubmit)="agregarAcercade()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Descripción</label>
+            <input type="text" class="form-control mb-3" name="descripcion"
+              [(ngModel)]="nuevaAcercade.descripcion" placeholder="Descripción">
+          </div>
+          <button class="btn btn-success m-4" type="submit"><i class="bi bi-check-lg"></i></button>
+        </div>
+      </form>
+    </div>
   </div>
 </nav>

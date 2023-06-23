@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,12 @@ export class NavbarComponent implements OnInit {
   isAuthenticated = false;
 
   constructor(private userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private portfolioService: PortfolioService) { }
+
+    mostrarComponente(componente: string) {
+      this.portfolioService.mostrarComponente(componente);
+    }
 
   ngOnInit(): void {
     this.isAuthenticated = this.userService.getIsAuthenticated();
