@@ -1,12 +1,23 @@
+body {
+
+    /*background: #134E5E;
+    background: -webkit-linear-gradient(to bottom, #71B280, #134E5E);
+    background: linear-gradient(to bottom, #71B280, #134E5E);
+    background-attachment: fixed;*/
+    background: #191c1e !important;
+}
+
 .banner {
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
+    /*    opacity: 0.5;*/
 }
 
 .profile-card {
-    background-color: #f5f3f4;
+    background-color: #2e3133;
+    color: #ffffff;
 }
 
 .profile-image {
@@ -38,29 +49,48 @@ p {
 }
 
 .logos-redes {
-    color: rgb(0, 0, 0);
+    color: #9aaab6;
 }
 
-.logos-redes:hover {    
+.logos-redes:hover {
     transition-duration: 0.3s;
     color: rgb(236, 236, 236);
 }
 
 .nav-link {
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    color: #9aaab6 !important;
 }
-.nav-link:hover {    
+
+.nav-link:hover {
     transition-duration: 0.3s;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white !important;
 }
 
-.navbar {
+.nav-bar {
+    background-color: transparent !important;
+}
+
+/*.navbar {
     background-color: #b5b4b4;
+    opacity: 0.5;
 }
-
+.navbar:hover {
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+*/
 .btn {
     background-color: black;
+}
+
+.btn:hover {
+    background-color: rgba(128, 128, 128, 0.5) !important;
+    color: white !important;
 }
 
 .arg-prog:hover {

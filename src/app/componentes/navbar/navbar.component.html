@@ -6,13 +6,13 @@
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
         <a class="nav-link active" (click)="mostrarComponente('inicio')">Inicio</a>
         <a class="nav-link" (click)="mostrarComponente('acercade')">Acerca de</a>
         <a class="nav-link" (click)="mostrarComponente('habilidades')">Habilidades</a>
         <a class="nav-link" (click)="mostrarComponente('experiencia')">Experiencia</a>
-        <a class="nav-link" (click)="mostrarComponente('educacion')">Educacion</a>
+        <a class="nav-link" (click)="mostrarComponente('educacion')">Educación</a>
         <a class="nav-link me-5" (click)="mostrarComponente('proyectos')" data-bs-toggle="collapse"
           data-bs-target="#navbarNavAltMarkup">Proyectos</a>
         <div class="mt-2 me-5">
@@ -23,11 +23,11 @@
           <a href="mailto:agustinalsina85@gmail.com" target="_blank"><i class="bi bi-envelope logos-redes"></i></a>
         </div>
         <div class="text-center">
-          <button type="button" class="btn btn-secondary text-black" *ngIf="isAuthenticated" (click)="onClick()">Logout</button>
+          <button type="button" class="btn nav-link" *ngIf="isAuthenticated" (click)="onClick()">LOGOUT</button>
         </div>
         <div class="text-center" *ngIf="!isAuthenticated">
-          <button type="button" class="btn btn-secondary text-black" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Login
+          <button type="button" class="btn nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            LOGIN
           </button>          
         </div>
       </div>
